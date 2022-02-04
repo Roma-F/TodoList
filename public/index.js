@@ -1,27 +1,33 @@
-let list = document.querySelector("ul");
-list.addEventListener("click", ev => {
-    if(ev.target.tagName === "LI"){
+let buttonTask = document.querySelector("#buttonAdd");
+let tasks = document.querySelector(".tasks");
+
+
+buttonTask.addEventListener("click", ev => {
+        let newTsk = document.createElement("div");
+        let inputTasks = document.querySelector("#inputTsk").value;
+        let txt = document.createTextNode(inputTasks);
+        newTsk.appendChild(txt);
+
+        if(inputTasks == "") {
+            alert("pls add text tasks");
+        }else {
+            tasks.appendChild(newTsk);
+        }
+        document.querySelector("#inputTsk").value = "";
+        let span = document.createElement("span");
+        let x = document.createTextNode(" X");
+        span.className= "close";
+        span.appendChild(x);
+        newTsk.appendChild(span);
+})
+
+//deleted tsk
+tasks.addEventListener("click", ev => {
+    if(ev.target.tagName == "DIV"){
         ev.target.classList.toggle("checked");
-    }else if(ev.target.tagName === "SPAN"){
+    }else if(ev.target.tagName == "SPAN"){
         let div = ev.target.parentNode;
+        ev.target.classList.toggle("checked");
         div.remove();
     }
-}, false);
-
-function newElement(){
-    let li = document.createElement("li");
-    let inputValue = document.getElementById("textTask").value;
-    let t = document.createTextNode(inputValue);
-    li.appendChild(t);
-    if(inputValue == ""){
-        alert("no add task")
-    }else{
-        document.getElementById("list").appendChild(li);
-    }
-    document.getElementById("textTask").value = "";
-    let span = document.createElement("SPAN");
-    let txt = document.createTextNode(" X");
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span)
-}
+})
