@@ -1,28 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 
-    <link rel="stylesheet" href="style.css">
-    <title>Todo List</title>
+    <head>
+        <title>TodoList</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
 
-<body>
+    <body>
+        <div>
+            <h1>TodoList</h1>
 
-<div class="wrapper">
-    <div class="header">
-            <h1>Todo List</h1>
-
-            <div class="foundation">
-                    <input type="text" placeholder="Add new task" id="inputTsk">
-                    <button id="buttonAdd" >Add</button>
+            <div id="addTasks">
+                <input type="text" id="inputTasks">
+                <button id="buttonAdd">Add</button>
             </div>
-    </div>
 
-    Notes:
+            <h3>Notes:</h3>
 
-    <div class="tasks">
-        <br>
+            <div id="newTask">
+            </div>
 
-    </div>
-</div>
+        </div>
 
-<script src="index.js"></script>
-
-</body>
+    <script src="index.js"></script>
+    </body>
+</html>
